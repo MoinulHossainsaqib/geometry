@@ -47,3 +47,42 @@ function calculateRectangleArea(){
 
 
 }
+
+// reuseable functional  --> reduse duplicate codes
+
+function calculatePerallelogramArea(){
+    const base = getInputValue('perallelogram-base');
+    // console.log(base)
+
+    const height = getInputValue('perallelogram-height');
+    // console.log(height)
+
+    const area = base * height;
+    setElementInnerText('perallelogram-area', area);
+}
+
+function calculateEllipseArea(){
+    const majorRadius = getInputValue('ellipse-major-radius');
+    const minorRadius = getInputValue('ellipse-minor-radius');
+    const area = 3.14 * majorRadius * minorRadius;
+    const areaTwoDecimal = area.toFixed(2);
+    setElementInnerText('ellipse-area', areaTwoDecimal);
+}
+
+
+
+// reuseable get input value field in number
+function getInputValue(fieldId){
+    const inputField = document.getElementById(fieldId);
+    const inputValueText = inputField.value;
+    const value = parseFloat(inputValueText);
+    return value;
+}
+
+// reuseable set span or p, div etc text
+
+function setElementInnerText(elementId, area){
+    const element = document.getElementById(elementId);
+    element.innerText = area;
+    
+}
